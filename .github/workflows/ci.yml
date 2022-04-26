@@ -1,0 +1,16 @@
+# .github/workflows/ci.yml
+
+name: 'CI'
+
+on: [ pull_request ]
+
+jobs:
+    build:
+        name: Linter
+        runs-on: [ self-hosted ]
+        steps:
+            -   uses: actions/checkout@v2
+            -   name: golangci-lint
+                uses: golangci/golangci-lint-action@v2
+                with:
+                    version: v1.45.2

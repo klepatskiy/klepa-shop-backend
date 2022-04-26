@@ -1,0 +1,25 @@
+version: '3.7'
+
+services:
+  ksb_postgresql:
+        container_name: ${PROJECT_NAME}_postgresql
+        image: postgres:latest
+        ports:
+            - "5432:5432"
+        volumes:
+            - ./.data/db:/var/lib/postgresql
+        environment:
+            POSTGRES_ROOT_PASSWORD: ${POSTGRESQL_APP_ROOT_PASSWORD}
+            POSTGRES_DB: ${POSTGRESQL_APP_DATABASE}
+            POSTGRES_USER: ${POSTGRESQL_APP_USER}
+            POSTGRES_PASSWORD: ${POSTGRESQL_APP_PASSWORD}
+  ksb_clickhouse:
+        container_name: ${PROJECT_NAME}_clickhouse
+        image: yandex/clickhouse-server:21
+        ports:
+            - "8150:8123"
+            - "9017:9000"
+            - "9025:9009"
+        volumes:
+            - ./.data/clickhouse/data:/var/lib/clickhouse
+            - ./.data/clickhouse/logs:/var/log/clickhouse-server

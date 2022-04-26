@@ -1,0 +1,26 @@
+### Docker
+/docker/.data
+
+### IDE settings
+/.settings/
+/.buildpath/
+/.project/
+/.idea/
+/nbproject/
+/.DS_Store
+
+### Dep
+/vendor/
+
+### Environment
+.env
+.env.github
+
+### Log
+/var/
+
+### Profile
+/pprof/
+
+### Binary
+klepa-shop-backend
